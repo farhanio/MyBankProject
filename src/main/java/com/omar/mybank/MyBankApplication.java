@@ -15,6 +15,7 @@ import com.omar.mybank.entities.CompteCourant;
 import com.omar.mybank.entities.CompteEpargne;
 import com.omar.mybank.entities.Retrait;
 import com.omar.mybank.entities.Versement;
+import com.omar.mybank.metier.IBanqueMetier;
 
 @SpringBootApplication
 public class MyBankApplication implements CommandLineRunner{
@@ -28,6 +29,8 @@ public class MyBankApplication implements CommandLineRunner{
 	@Autowired
 	private OperationRepository operationRepository;
 	
+	@Autowired
+	private IBanqueMetier banqueMetier;
 	
 	public static void main(String[] args) {
 		 SpringApplication.run(MyBankApplication.class, args);
@@ -60,6 +63,9 @@ public class MyBankApplication implements CommandLineRunner{
 		
 		operationRepository.save(new Retrait(new Date(), 280, cc1));
 		operationRepository.save(new Retrait(new Date(), 580, cc2));
+		
+		banqueMetier.verser(cc1.getCodeCompte(), 1000);
+		banqueMetier.retirer(cc1.getCodeCompte(), 1244);
 		
 	}
 }
