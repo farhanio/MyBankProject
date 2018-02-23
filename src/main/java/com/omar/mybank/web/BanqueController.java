@@ -17,5 +17,16 @@ public class BanqueController {
 	}
 	
 	
+	@RequestMapping("/consultercompte")
+	public String consulterCompte(){
+		return "compte";
+	}
+	
+	@RequestMapping("/operations")
+	public String consulterOperations(){
+		return "operation";
+	}
+	
+	
 
 }

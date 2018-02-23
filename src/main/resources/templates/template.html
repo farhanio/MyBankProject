@@ -58,12 +58,12 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Dashboard"><a class="nav-link" th:href="@{/clients}">
+					title="Dashboard"><a class="nav-link" th:href="@{/}">
 						<i class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Home
 							Page</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Charts"><a class="nav-link" th:href="@{/comptes}"> <i
+					title="Charts"><a class="nav-link" th:href="@{/consultercompte}"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">My
 							Accounts</span>
 				</a></li>
@@ -176,17 +176,11 @@
 		</div>
 	</nav>
 	<div class="content-wrapper">
-		<div class="container-fluid">
-			<!-- Breadcrumbs-->
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Home Page</a></li>
-				<li class="breadcrumb-item active">My Accounts Situation</li>
-			</ol>
-
-
-
-
-		</div>
+		
+		<th:block layout:fragment="MyBlock">
+		
+		</th:block>
+		
 		<!-- /.container-fluid-->
 		<!-- /.content-wrapper-->
 		<footer class="sticky-footer">
@@ -201,7 +195,10 @@
 			class="fa fa-angle-up"></i>
 		</a>
 		<!-- Logout Modal-->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		
+		
+	</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -223,8 +220,6 @@
 				</div>
 			</div>
 		</div>
-		
-	</div>
 </body>
 
 </html>
