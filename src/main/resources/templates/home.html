@@ -26,22 +26,46 @@
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
-
-
-							
-
 							<thead>
 								<tr>
 									<th>Account ID</th>
 									<th>Creation Date</th>
 									<th>Credit</th>
+									<th>Type</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="compte : ${comptes}">
 									<td th:text="${compte?.codeCompte}"></td>
 									<td th:text="${compte?.dateCreation}"></td>
-									<td th:text="${compte?.solde}"></td>
+									<td>
+										<div th:if="${compte?.class.simpleName=='CompteCourant'}">
+											<a th:text="${compte?.solde}"></a> <a> - authorized bank
+												overdraft - </a> <a th:text="${compte?.decouvert}  "></a>
+
+
+										</div>
+										<div th:if="${compte?.class.simpleName=='CompteEpargne'}">
+											<a th:text="${compte?.solde}"></a> <a> - savings Account
+												Rate - </a> <a th:text="${compte?.taux}  "></a> <a> % </a>
+
+										</div>
+									</td>
+
+									<td>
+
+										<div th:if="${compte?.class.simpleName=='CompteCourant'}">
+
+											<a> Checking Account</a>
+
+										</div>
+
+										<div th:if="${compte?.class.simpleName=='CompteEpargne'}">
+
+											<a> Saving Account </a>
+
+										</div>
+									</td>
 								</tr>
 							</tbody>
 

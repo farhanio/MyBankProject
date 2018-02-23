@@ -4,9 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import com.omar.mybank.entities.Compte;
@@ -17,34 +14,19 @@ public class BanqueController {
 	@Autowired
 	private IBanqueMetier banqueMetier;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
+	@RequestMapping(value="/")
 	public String index(Model model){
 		
-		Compte cp = banqueMetier.consulterCompte("U098324/9");
-		System.out.println(cp.getCodeCompte());
-		System.out.println(cp.getSolde());
-		List <Compte> mylist = new ArrayList<>();
-		mylist = banqueMetier.getToutLesComptes();
+		List <Compte> mylist = banqueMetier.getToutLesComptes();
 		model.addAttribute("comptes", mylist);
 		return "home";
 	}
 	
-//	
-//	@RequestMapping(value="/consultercompte", method = RequestMethod.GET)
-//	public String consulterCompte( ){
-//		try {
-//			Compte cp = banqueMetier.consulterCompte("U098324/9");
-//		
-//		//	model.addAttribute("compte", cp);
-//		}catch(Exception e) {
-//			//model.addAttribute("exception", e);
-//		}
-//		return "home";
-//	}
+
 	
-	@RequestMapping("/consulterComptes")
+	@RequestMapping("/consultercompte")
 	public String consulterComptes(){
-		return "home";
+		return "compte";
 	}
 	
 	@RequestMapping("/operations")
