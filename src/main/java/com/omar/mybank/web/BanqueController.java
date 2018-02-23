@@ -11,9 +11,9 @@ public class BanqueController {
 	@Autowired
 	private IBanqueMetier banqueMetier;
 	
-	@RequestMapping("/operations")
+	@RequestMapping("/")
 	public String index(){
-		return "comptes";
+		return "home";
 	}
 	
 	
