@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.omar.mybank.entities.Compte;
 import com.omar.mybank.metier.IBanqueMetier;
 
@@ -17,10 +20,12 @@ public class BanqueController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String index(Model model){
 		
-		Compte compte = banqueMetier.consulterCompte("U098324/9");
-		System.out.println(compte.getCodeCompte());
-		System.out.println(compte.getSolde());
-		model.addAttribute("compte",compte);
+		Compte cp = banqueMetier.consulterCompte("U098324/9");
+		System.out.println(cp.getCodeCompte());
+		System.out.println(cp.getSolde());
+		List <Compte> mylist = new ArrayList<>();
+		mylist = banqueMetier.getToutLesComptes();
+		model.addAttribute("comptes", mylist);
 		return "home";
 	}
 	

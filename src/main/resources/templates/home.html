@@ -21,20 +21,33 @@
 				<div class="card-header">
 					<i class="fa fa-table"></i> My Active Accounts
 				</div>
-				
-					<div class="card-body" th:action="@{/}" method="post">
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
+
+				<div class="card-body" th:action="@{/}" method="post">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
 
 
+							
+
+							<thead>
 								<tr>
-									<td><h3 th:text="${compte.solde}"></h3></td>
+									<th>Account ID</th>
+									<th>Creation Date</th>
+									<th>Credit</th>
 								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="compte : ${comptes}">
+									<td th:text="${compte?.codeCompte}"></td>
+									<td th:text="${compte?.dateCreation}"></td>
+									<td th:text="${compte?.solde}"></td>
+								</tr>
+							</tbody>
 
-							</table>
-						</div>
-					</div> 
+						</table>
+					</div>
+				</div>
 
 			</div>
 		</div>
