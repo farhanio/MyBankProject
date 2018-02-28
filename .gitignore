@@ -1,5 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+## Static Files CSS & JS ##
+main/resources/static/**
 
 ### STS ###
 .apt_generated
